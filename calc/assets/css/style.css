@@ -1,0 +1,44 @@
+html {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+body {
+    background-image: linear-gradient(to bottom right ,rgb(48, 37, 210), rgb(235, 10, 130));
+}
+.div-out {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+table {
+    width: 22vw;
+    background-color:#003332;
+}
+td {
+    text-align:center;
+}
+th {
+    text-align:right;
+}
+button {    
+    font-size: 35px;
+    font-weight: bold;
+    width: 100%;
+    height: 50px;
+    background-color:#c5e3e3;
+}
+.tb1 {
+    height: 50px;
+    font-size: 20px;
+    text-align: right;
+    width: 100%;
+    border: none;
+}
+.tb2 {
+    height: 65px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: right;
+    width: 100%;
+    border: none;
+}
