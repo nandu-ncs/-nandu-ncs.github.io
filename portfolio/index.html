@@ -3,6 +3,25 @@
 <head>
   <title>Nandu Sasikumar</title>
   <link rel="stylesheet" href="assets/css/style.css">
+
+  <script>
+    window.addEventListener('load', function () {
+      fetch('https://api.github.com/users/nandu-ncs')
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          document.querySelector("#avatar").setAttribute("src",data.avatar_url)
+          document.querySelector("#url").setAttribute("href",data.html_url)
+          document.querySelector("#url").innerHTML = data.login
+          document.querySelector("#followers").innerHTML = data.followers
+          document.querySelector("#following").innerHTML = data.following
+          document.querySelector("#repos").innerHTML = data.public_repos
+          //document.getElementById("#gists").innerText = data.public_gists
+
+        })
+    })
+  </script>
 </head>
 
 <body>
@@ -13,7 +32,7 @@
       <a href="#">Home</a>
       <a href="#edu">Education</a>
       <a href="#pro">Projects</a>
-      <!-- <a href="#">Others</a> -->
+      <a href="#gith">Github</a>
       <a href="contact.html">Contact</a>
     </p>
   </div>
@@ -55,7 +74,7 @@
       <h1>Education</h1>
       <dl>
         <dt>
-          2023 - Master of Computer Applications
+          2023 - Master of Computer Applications (7.91 CGPA)
         </dt>
         <dd>
           Mar Athanasius College of Engineering (MACE),
@@ -118,6 +137,34 @@
         </dd>
         <br>
       </dl>
+    </div>
+  </div>
+  <div class="sec git" id="gith">
+    <div class="sec-sub">
+      <h1>Github</h1>
+      <div class="row">
+        <div class="col-md-2">
+          <img id="avatar">
+        </div>
+        <div class="col-md-10" style="display: flex;align-items: center;">
+          <h6 ><a id="url" target="_blank"></a></h6>
+        </div>
+      </div>
+      <table cellspacing="10" cellpadding="10">
+        <tr>
+          <th>Followers</th>
+          <td id="followers"></td>
+        </tr>
+        <tr>
+          <th>Following</th>
+          <td id="following"></td>
+        </tr>
+        <tr>
+          <th>Number of Repos</th>
+          <td id="repos"></td>
+        </tr>
+        </tr>
+      </table>
     </div>
   </div>
   <div class="footer">
