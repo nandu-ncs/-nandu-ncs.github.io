@@ -11,8 +11,8 @@
           return res.json()
         })
         .then(data => {
-          document.querySelector("#avatar").setAttribute("src",data.avatar_url)
-          document.querySelector("#url").setAttribute("href",data.html_url)
+          document.querySelector("#avatar").setAttribute("src", data.avatar_url)
+          document.querySelector("#url").setAttribute("href", data.html_url)
           document.querySelector("#url").innerHTML = data.login
           document.querySelector("#followers").innerHTML = data.followers
           document.querySelector("#following").innerHTML = data.following
@@ -20,6 +20,20 @@
           //document.getElementById("#gists").innerText = data.public_gists
 
         })
+      fetch('https://api.github.com/users/nandu-ncs/repos')
+        .then(res => {
+          return res.json()
+        })
+        .then(data => {
+          for (i in data) {
+            const node = document.createElement("li");
+            const textnode = document.createTextNode(data[i]['name']);
+            node.appendChild(textnode);
+            document.getElementById("repols").appendChild(node);
+          }
+
+        })
+
     })
   </script>
 </head>
@@ -147,7 +161,7 @@
           <img id="avatar">
         </div>
         <div class="col-md-10" style="display: flex;align-items: center;">
-          <h6 ><a id="url" target="_blank"></a></h6>
+          <h6><a id="url" target="_blank"></a></h6>
         </div>
       </div>
       <table cellspacing="10" cellpadding="10">
@@ -165,6 +179,10 @@
         </tr>
         </tr>
       </table>
+      <h3>Repositories</h3>
+      <ul id="repols">
+
+      </ul>
     </div>
   </div>
   <div class="footer">
